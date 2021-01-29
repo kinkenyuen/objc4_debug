@@ -7583,14 +7583,27 @@ _class_createInstanceFromZone(Class cls, size_t extraBytes, void *zone,
                               size_t *outAllocatedSize = nil)
 {
     ASSERT(cls->isRealized());
+    
+    //**********Debug**********
+    const char *name = cls->mangledName();
+    if (!strcmp(name, "Person")) {
+        sleep(1);
+    }
+    //**********Debug**********
 
     // Read class's info bits all at once for performance
+    //是否含有c++构造函数
     bool hasCxxCtor = cxxConstruct && cls->hasCxxCtor();
+    //是否含有c++析构函数
     bool hasCxxDtor = cls->hasCxxDtor();
+    //是否支持isa指针优化,fast模式（与isa初始化有关）
     bool fast = cls->canAllocNonpointer();
+    //用于计算实例对象内存大小
     size_t size;
 
     //获取对象大小(计算成员变量长度)
+    //extraBytes额外增加字节，默认为0
+    //instanceSize内部会做字节对齐
     size = cls->instanceSize(extraBytes);
     if (outAllocatedSize) *outAllocatedSize = size;
 

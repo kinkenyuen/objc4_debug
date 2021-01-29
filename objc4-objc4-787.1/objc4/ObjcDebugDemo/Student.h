@@ -14,6 +14,9 @@ NS_ASSUME_NONNULL_BEGIN
     NSString *name;
     NSString *address;
 }
+
+@property (nonatomic, weak) id delegate;
+
 - (void)talk;
 @end
 

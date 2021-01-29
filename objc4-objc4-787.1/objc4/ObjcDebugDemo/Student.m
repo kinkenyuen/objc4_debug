@@ -9,8 +9,14 @@
 
 @implementation Student
 
-+ (instancetype)allocWithZone:(struct _NSZone *)zone {
-    return nil;
+- (instancetype)init
+{
+    self = [super init];
+    if (self) {
+        NSLog(@"%@", NSStringFromClass([self class]));
+        NSLog(@"%@", NSStringFromClass([super class]));
+    }
+    return self;
 }
 
 @end

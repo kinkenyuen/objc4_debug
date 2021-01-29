@@ -40,6 +40,11 @@
 #include <execinfo.h>
 #include "NSObject-internal.h"
 
+//#include <iostream>
+//using namespace std;
+
+#include "stdio.h"
+
 @interface NSInvocation
 - (SEL)selector;
 @end
@@ -1702,6 +1707,17 @@ callAlloc(Class cls, bool checkNil, bool allocWithZone=false)
 {
 #if __OBJC2__
     if (slowpath(checkNil && !cls)) return nil;
+    
+    //**********Debug**********
+    bool hasCustomAWZ = cls->ISA()->hasCustomAWZ();
+    const char *name = cls->mangledName();
+    if (!strcmp(name, "Person")) {
+        printf("kk | %s hasCustomAWZ : %d\n",name, hasCustomAWZ);
+    }
+    //**********Debug**********
+    
+    //第一次判断hasCustomAWZ为YES，没有进入
+    //第二次判断hasCustomAWZ为NO,进入
     if (fastpath(!cls->ISA()->hasCustomAWZ())) {
         return _objc_rootAllocWithZone(cls, nil);
     }
@@ -1727,6 +1743,12 @@ _objc_rootAlloc(Class cls)
 id
 objc_alloc(Class cls)
 {
+    //**********Debug**********
+    const char *name = cls->mangledName();
+    if (!strcmp(name, "Person")) {
+        printf("kk | cls name : %s\n",cls->mangledName());
+    }
+    //**********Debug**********
     return callAlloc(cls, true/*checkNil*/, false/*allocWithZone*/);
 }
 
@@ -2028,6 +2050,12 @@ __attribute__((objc_nonlazy_class))
 - (Class)superclass {
     return [self class]->superclass;
 }
+
+//注意以下4个方法的实现，类方法与实例方法实现不同
+// + isMemberOfClass 找到类对象对应的元类对象，判断是否相等
+// + isKindOfClass   找到类对象对应的元类对象，然后遍历元类对象继承链比较是否相等
+// - isMemberOfClass 找到实例对象对应的类，判断是否相等
+// - isKindOfClass   找到实例对象对应的类，然后遍历类对象继承链是否相等
 
 + (BOOL)isMemberOfClass:(Class)cls {
     return self->ISA() == cls;

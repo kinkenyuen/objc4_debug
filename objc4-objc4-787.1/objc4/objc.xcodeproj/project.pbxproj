@@ -154,6 +154,7 @@
 		DC1004B225BD2A9500B4855C /* Person.m in Sources */ = {isa = PBXBuildFile; fileRef = DC1004B125BD2A9500B4855C /* Person.m */; };
 		DC1004CD25BD2AF900B4855C /* API.mm in Sources */ = {isa = PBXBuildFile; fileRef = DC1004CC25BD2AF900B4855C /* API.mm */; };
 		DC1004E925BD4E4800B4855C /* Coder.m in Sources */ = {isa = PBXBuildFile; fileRef = DC1004E825BD4E4800B4855C /* Coder.m */; };
+		DCA38F3725C3BC62008457AE /* Person.m in Sources */ = {isa = PBXBuildFile; fileRef = DCA38F3625C3BC62008457AE /* Person.m */; };
 		DCFFDE1025B830420024F7B4 /* main.mm in Sources */ = {isa = PBXBuildFile; fileRef = DCFFDE0F25B830420024F7B4 /* main.mm */; };
 		DCFFDE1D25B830760024F7B4 /* libobjc.A.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = D2AAC0630554660B00DB518D /* libobjc.A.dylib */; };
 		DCFFDE5125B956900024F7B4 /* Student.m in Sources */ = {isa = PBXBuildFile; fileRef = DCFFDE5025B956900024F7B4 /* Student.m */; };
@@ -356,6 +357,8 @@
 		DC1004DE25BD323A00B4855C /* StructDefine.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = StructDefine.h; sourceTree = "<group>"; };
 		DC1004E725BD4E4800B4855C /* Coder.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Coder.h; sourceTree = "<group>"; };
 		DC1004E825BD4E4800B4855C /* Coder.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Coder.m; sourceTree = "<group>"; };
+		DCA38F3525C3BC62008457AE /* Person.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Person.h; sourceTree = "<group>"; };
+		DCA38F3625C3BC62008457AE /* Person.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Person.m; sourceTree = "<group>"; };
 		DCFFDE0D25B830420024F7B4 /* ObjcDebugDemo */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = ObjcDebugDemo; sourceTree = BUILT_PRODUCTS_DIR; };
 		DCFFDE0F25B830420024F7B4 /* main.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = main.mm; sourceTree = "<group>"; };
 		DCFFDE4F25B956900024F7B4 /* Student.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Student.h; sourceTree = "<group>"; };
@@ -639,6 +642,8 @@
 				DCFFDE0F25B830420024F7B4 /* main.mm */,
 				DCFFDE4F25B956900024F7B4 /* Student.h */,
 				DCFFDE5025B956900024F7B4 /* Student.m */,
+				DCA38F3525C3BC62008457AE /* Person.h */,
+				DCA38F3625C3BC62008457AE /* Person.m */,
 			);
 			path = ObjcDebugDemo;
 			sourceTree = "<group>";
@@ -1004,6 +1009,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DCA38F3725C3BC62008457AE /* Person.m in Sources */,
 				DCFFDE1025B830420024F7B4 /* main.mm in Sources */,
 				DCFFDE5125B956900024F7B4 /* Student.m in Sources */,
 			);
